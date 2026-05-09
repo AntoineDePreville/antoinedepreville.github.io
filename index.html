@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="./styles.css">
         <meta charset="UTF-89">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Antoine de Préville - Geneva based - Environmental modelisation</title>
@@ -8,16 +9,23 @@
 
     <body>
         <h1>Antoine de Préville</h1>
+        <div style="display: flex; align-items: center; gap: 10px;">
 
-        <img src="P1050049.jpg"/>
+            <img class="img" src="P1050049.jpg" width="50%"/>
 
-        <p>International mongrel, Antoine is born in San Salvador, El Salvador. A mother from Armenia and an Argentinian father, both French as well, makes Antoine speak French and Spanish. He now lives in Geneva, Switzerland as a Swiss citizen.<br />
-        He studied Latin until he was sixteen, but science and the understanding of the environment guided his future. He studied then environmental sciences at Swiss Federal Institute of Technology Lausanne and at the University of Lausanne and computer engineering at HEPIA in Geneva. Since then, he keeps trying to understand the world.<br />
-        Antoine is also an artist trying to capture his surroundings with a camera and uses visual storytelling to expose and tell what he sees.</p>
-
-        <h2>Themes</h2>
-        <a href="./scientific-computing.html">Scientific computing</a><br />
-        <a href="./resume.html">Resume</a><br />
+            <p class="bio">International mongrel, Antoine is born in San Salvador, El Salvador. A mother from Armenia and an Argentinian father, both French as well, makes Antoine speak French and Spanish. He now lives in Geneva, Switzerland as a Swiss citizen.<br />
+            He studied Latin until he was sixteen, but science and the understanding of the environment guided his future. He studied then environmental sciences at Swiss Federal Institute of Technology Lausanne and at the University of Lausanne and computer engineering at HEPIA in Geneva. Since then, he keeps trying to understand the world.<br />
+            Antoine is also an artist trying to capture his surroundingswith a camera and uses visual storytelling to expose and tell what he sees.</p>
+        </div>
+        
+        <div style="background-color: grey; padding: 10px;">
+            <h2 class="white-text">Main Themes</h2>
+            <div style="display: flex; gap: 10px;">
+                <a href="./scientific-computing.html" class="white-text">Scientific computing</a><br />
+                <a href="./resume.html" class="white-text">Resume</a><br />
+            </div>
+            <br>
+        </div>
 
         <h2>Positioning</h2>
         <p>Antoine is currently a computer engineering student at HEPIA-Geneva with a background in Environmental sciences and engineering from EPFL and UNIL in Lausanne, Switzerland. He worked on different geoscience and science projects like ice-cap depletion simulation and physics-based simulation in Mechanics. He has a unique expertise in both environmental and computer engineering and moreover he is passionate about Machine learning and pattern recognition, especially in Environmental and Earth sciences.</p><br />
@@ -42,9 +50,11 @@
             <li>A person, a startup, an SME or a large organization</li>
         </ul>
 
-        <h2>Contact me</h2>
-        Geneva, Switzerland<br>
-        +41 76 586 31 35<br>
-        <label for="email">antoine.de_preville@bluewin.ch</label><br>
+        <div style="background-color: grey; padding: 10px;">
+            <h2 class="white-text"> Contact me</h2>
+            <p class="white-text">Geneva, Switzerland</p>
+            <p class=" white-text">+41 76 586 31 35</p>
+            <label for="email" class="white-text">antoine.de_preville@bluewin.ch</label>
+        </div>
     </body>
 </html>
