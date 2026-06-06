@@ -1,2 +1,322 @@
-.white-text{color: white; background: grey;}
-*{font-family: Arial, Helvetica, sans-serif;}
+/* ── Variables ── */
+:root {
+  --noir: #111111;
+  --blanc: #f5f3ef;
+  --gris: #6b6b6b;
+  --gris-clair: #e8e5e0;
+  --accent: #2a2a2a;
+  --footer-bg: #1a1a1a;
+  --max-width: 860px;
+  --padding-page: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--blanc);
+  color: var(--noir);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ── Google Fonts import ── */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Typography ── */
+h1 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--noir);
+}
+
+h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 1.2rem;
+  margin-top: 2.8rem;
+}
+
+h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--noir);
+  margin-bottom: 0.6rem;
+  margin-top: 1.6rem;
+}
+
+p {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  padding-left: 1.2rem;
+  color: var(--accent);
+}
+
+ul li {
+  margin-bottom: 0.3rem;
+}
+
+b, strong {
+  font-weight: 600;
+  color: var(--noir);
+}
+
+/* ── Layout ── */
+.page-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--padding-page);
+}
+
+/* ── Header / Nav ── */
+header {
+  border-bottom: 1px solid var(--gris-clair);
+  padding: 1.4rem 0;
+  position: sticky;
+  top: 0;
+  background: var(--blanc);
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--padding-page);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--noir);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gris);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+nav a:hover { color: var(--noir); }
+nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
+
+/* ── Hero (index) ── */
+.hero {
+  padding: 5rem 0 4rem;
+}
+
+.hero-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 1.4rem;
+}
+
+/* ── Profile block ── */
+.profile-block {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--gris-clair);
+}
+
+.profile-img {
+  width: 42%;
+  flex-shrink: 0;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: grayscale(15%);
+}
+
+.profile-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--gris-clair);
+  margin: 3rem 0;
+}
+
+/* ── Nav tiles (Main Themes) ── */
+.themes-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 1rem;
+}
+
+.themes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+
+.theme-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--noir);
+  border: 1px solid var(--noir);
+  padding: 0.45rem 1rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.theme-tag:hover {
+  background: var(--noir);
+  color: var(--blanc);
+}
+
+/* ── Section blocks ── */
+.section {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--gris-clair);
+}
+
+/* ── Footer / Contact ── */
+footer {
+  background: var(--footer-bg);
+  color: #aaa;
+  margin-top: 5rem;
+  padding: 3.5rem var(--padding-page);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+footer h2 {
+  color: #666;
+  margin-top: 0;
+}
+
+footer p, footer a {
+  color: #aaa;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  line-height: 2;
+  text-decoration: none;
+}
+
+footer a:hover { color: #fff; }
+
+.contact-info p { margin-bottom: 0; }
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Page header (inner pages) ── */
+.page-header {
+  padding: 4rem 0 2rem;
+  border-bottom: 1px solid var(--gris-clair);
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+/* ── Resume specific ── */
+.resume-entry {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.resume-entry:last-child {
+  border-bottom: none;
+}
+
+.resume-org {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--noir);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.resume-role {
+  color: var(--accent);
+  font-size: 1rem;
+  display: block;
+}
+
+.resume-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--gris);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .profile-block {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .profile-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  nav { gap: 1.2rem; }
+}
