@@ -162,7 +162,6 @@ nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
 .profile-img {
   width: 42%;
   flex-shrink: 0;
-  aspect-ratio: 3/4;
   object-fit: contain;
   filter: grayscale(15%);
 }
