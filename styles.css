@@ -1,3 +1,6 @@
+/* ── Google Fonts import ── */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
 /* ── Variables ── */
 :root {
   --noir: #111111;
@@ -6,13 +9,13 @@
   --gris-clair: #e8e5e0;
   --accent: #2a2a2a;
   --footer-bg: #1a1a1a;
-  --max-width: 860px;
+  --text-width: 420px;   /* largeur fixe du bloc texte */
+  --gap: 3rem;
   --padding-page: clamp(1.5rem, 5vw, 3rem);
 }
 
 /* ── Reset & Base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -23,9 +26,6 @@ body {
   line-height: 1.75;
   min-height: 100vh;
 }
-
-/* ── Google Fonts import ── */
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
 /* ── Typography ── */
 h1 {
@@ -57,36 +57,11 @@ h3 {
   margin-top: 1.6rem;
 }
 
-p {
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul {
-  padding-left: 1.2rem;
-  color: var(--accent);
-}
-
-ul li {
-  margin-bottom: 0.3rem;
-}
-
-b, strong {
-  font-weight: 600;
-  color: var(--noir);
-}
-
-/* ── Layout ── */
-.page-wrapper {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--padding-page);
-}
+p { color: var(--accent); margin-bottom: 1rem; }
+a { color: inherit; text-decoration: none; }
+ul { padding-left: 1.2rem; color: var(--accent); }
+ul li { margin-bottom: 0.3rem; }
+b, strong { font-weight: 600; color: var(--noir); }
 
 /* ── Header / Nav ── */
 header {
@@ -99,7 +74,7 @@ header {
 }
 
 .header-inner {
-  max-width: var(--max-width);
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--padding-page);
   display: flex;
@@ -113,13 +88,9 @@ header {
   font-weight: 500;
   letter-spacing: 0.03em;
   color: var(--noir);
-  text-decoration: none;
 }
 
-nav {
-  display: flex;
-  gap: 2rem;
-}
+nav { display: flex; gap: 2rem; }
 
 nav a {
   font-family: 'DM Sans', sans-serif;
@@ -128,17 +99,14 @@ nav a {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gris);
-  text-decoration: none;
   transition: color 0.2s;
 }
 
 nav a:hover { color: var(--noir); }
 nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
 
-/* ── Hero (index) ── */
-.hero {
-  padding: 5rem 0 4rem;
-}
+/* ── Hero ── */
+.hero { padding: 5rem 0 4rem; }
 
 .hero-subtitle {
   font-family: 'DM Sans', sans-serif;
@@ -149,26 +117,46 @@ nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
   margin-bottom: 1.4rem;
 }
 
-/* ── Profile block ── */
+/* ── Profile block ──
+   Image s'adapte à la hauteur du texte.
+   Tout le reste de la page prend la même largeur que ce bloc.
+── */
 .profile-block {
   display: flex;
-  gap: 3rem;
-  align-items: flex-start;
+  gap: var(--gap);
+  align-items: stretch;   /* image et texte à la même hauteur */
   margin-top: 3rem;
   padding-top: 2.5rem;
   border-top: 1px solid var(--gris-clair);
 }
 
 .profile-img {
-  width: 42%;
+  /* L'image prend toute la hauteur du texte, largeur automatique */
   flex-shrink: 0;
+  width: auto;
+  height: 100%;
+  max-height: 600px;      /* garde une limite raisonnable */
   object-fit: contain;
-  filter: grayscale(15%);
+  object-position: top left;
+  filter: grayscale(10%);
+  display: block;
+}
+
+.profile-text {
+  width: var(--text-width);
+  flex-shrink: 0;
 }
 
 .profile-text p {
   font-size: 1.05rem;
   line-height: 1.8;
+}
+
+/* ── Page wrapper : aligne sur la largeur du bloc profil ── */
+.page-wrapper {
+  /* image width est dynamique donc on laisse le contenu
+     s'aligner naturellement sous le bloc profil via le même padding */
+  padding: 0 var(--padding-page);
 }
 
 /* ── Divider ── */
@@ -202,14 +190,10 @@ nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
   color: var(--noir);
   border: 1px solid var(--noir);
   padding: 0.45rem 1rem;
-  text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
 
-.theme-tag:hover {
-  background: var(--noir);
-  color: var(--blanc);
-}
+.theme-tag:hover { background: var(--noir); color: var(--blanc); }
 
 /* ── Section blocks ── */
 .section {
@@ -217,7 +201,7 @@ nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
   border-top: 1px solid var(--gris-clair);
 }
 
-/* ── Footer / Contact ── */
+/* ── Footer ── */
 footer {
   background: var(--footer-bg);
   color: #aaa;
@@ -226,34 +210,23 @@ footer {
 }
 
 .footer-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 
-footer h2 {
-  color: #666;
-  margin-top: 0;
-}
+footer h2 { color: #666; margin-top: 0; }
 
 footer p, footer a {
   color: #aaa;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.9rem;
   line-height: 2;
-  text-decoration: none;
 }
 
 footer a:hover { color: #fff; }
-
 .contact-info p { margin-bottom: 0; }
-
-.social-links {
-  display: flex;
-  flex-direction: column;
-}
+.social-links { display: flex; flex-direction: column; }
 
 /* ── Page header (inner pages) ── */
 .page-header {
@@ -262,20 +235,16 @@ footer a:hover { color: #fff; }
   margin-bottom: 3rem;
 }
 
-.page-header h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-}
+.page-header h1 { font-size: clamp(1.8rem, 4vw, 3rem); }
 
-/* ── Resume specific ── */
+/* ── Resume ── */
 .resume-entry {
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--gris-clair);
 }
 
-.resume-entry:last-child {
-  border-bottom: none;
-}
+.resume-entry:last-child { border-bottom: none; }
 
 .resume-org {
   font-family: 'EB Garamond', serif;
@@ -286,11 +255,7 @@ footer a:hover { color: #fff; }
   margin-bottom: 0.15rem;
 }
 
-.resume-role {
-  color: var(--accent);
-  font-size: 1rem;
-  display: block;
-}
+.resume-role { color: var(--accent); font-size: 1rem; display: block; }
 
 .resume-date {
   font-family: 'DM Sans', sans-serif;
@@ -302,20 +267,10 @@ footer a:hover { color: #fff; }
 }
 
 /* ── Responsive ── */
-@media (max-width: 600px) {
-  .profile-block {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .profile-img {
-    width: 100%;
-    aspect-ratio: 4/3;
-  }
-
-  .footer-inner {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 650px) {
+  .profile-block { flex-direction: column; align-items: flex-start; }
+  .profile-img { width: 100%; height: auto; max-height: none; }
+  .profile-text { width: 100%; }
+  .footer-inner { grid-template-columns: 1fr; }
   nav { gap: 1.2rem; }
 }

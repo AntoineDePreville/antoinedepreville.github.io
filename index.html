@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antoine de Préville — Geneva</title>
   <link rel="stylesheet" href="./styles.css">
+  <style>
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 var(--padding-page);
+    }
+
+    /* Hero s'aligne à gauche comme le reste */
+    .hero { width: 100%; }
+
+    /* Le bloc profil définit la largeur de référence */
+    .profile-block { width: max-content; }
+
+    /* Tout le contenu sous le profil prend la même largeur */
+    .below-profile {
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 
@@ -33,6 +52,8 @@
         <p>Antoine is also an artist trying to capture his surroundings with a camera and uses visual storytelling to expose and tell what he sees.</p>
       </div>
     </div>
+
+    <div class="below-profile" id="belowProfile"></div>
 
     <hr class="divider">
 
@@ -87,6 +108,24 @@
       </div>
     </div>
   </footer>
+  <script>
+    // Aligne la largeur du contenu sous le profil sur celle du bloc profil
+    function alignWidth() {
+      const block = document.getElementById('profileBlock');
+      const below = document.getElementById('belowProfile');
+      const hero  = document.querySelector('.hero');
+      if (!block || !below) return;
+      const w = block.offsetWidth + 'px';
+      below.style.width = w;
+      hero.style.width  = w;
+    }
+
+    // Attend que l'image soit chargée pour avoir les bonnes dimensions
+    const img = document.querySelector('.profile-img');
+    if (img.complete) { alignWidth(); }
+    else { img.addEventListener('load', alignWidth); }
+    window.addEventListener('resize', alignWidth);
+  </script>
 
 </body>
 </html>
