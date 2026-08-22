@@ -11,7 +11,7 @@
   --footer-bg: #1a1a1a;
   --text-width: 420px;   /* largeur fixe du bloc texte */
   --gap: 3rem;
-  --padding-page: clamp(1.5rem, 5vw, 3rem);
+  --padding-page: clamp(1.2rem, 5vw, 2.5rem);
 }
 
 /* ── Reset & Base ── */
@@ -30,7 +30,7 @@ body {
 /* ── Typography ── */
 h1 {
   font-family: 'EB Garamond', serif;
-  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -39,22 +39,22 @@ h1 {
 
 h2 {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gris);
-  margin-bottom: 1.2rem;
-  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
 }
 
 h3 {
   font-family: 'EB Garamond', serif;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 500;
   color: var(--noir);
-  margin-bottom: 0.6rem;
-  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.4rem;
 }
 
 p { color: var(--accent); margin-bottom: 1rem; }
@@ -63,10 +63,18 @@ ul { padding-left: 1.2rem; color: var(--accent); }
 ul li { margin-bottom: 0.3rem; }
 b, strong { font-weight: 600; color: var(--noir); }
 
+/* ── Centrage principal ── */
+.page-wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+
 /* ── Header / Nav ── */
 header {
   border-bottom: 1px solid var(--gris-clair);
-  padding: 1.4rem 0;
+  padding: 1.3rem 0;
   position: sticky;
   top: 0;
   background: var(--blanc);
@@ -74,9 +82,9 @@ header {
 }
 
 .header-inner {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--padding-page);
+  padding: 0 var(--pad);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,7 +92,7 @@ header {
 
 .site-name {
   font-family: 'EB Garamond', serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: 0.03em;
   color: var(--noir);
@@ -94,7 +102,7 @@ nav { display: flex; gap: 2rem; }
 
 nav a {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -103,19 +111,63 @@ nav a {
 }
 
 nav a:hover { color: var(--noir); }
-nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
+nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); padding-bottom: 1px; }
 
 /* ── Hero ── */
-.hero { padding: 5rem 0 4rem; }
+.hero { padding: 4.5rem 0 3rem; }
 
 .hero-subtitle {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gris);
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
 }
+
+/* ── Séparateur ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--gris-clair);
+  margin: 2.5rem 0;
+}
+
+/* ── Section blocks ── */
+.section {
+  padding: 2.2rem 0;
+  border-top: 1px solid var(--gris-clair);
+}
+
+/* ── Tags thèmes ── */
+.themes-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 0.9rem;
+}
+
+.themes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+ 
+.theme-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--noir);
+  border: 1px solid var(--noir);
+  padding: 0.4rem 0.9rem;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+ 
+.theme-tag:hover { background: var(--noir); color: var(--blanc); }
+
+
 
 /* ── Profile block ──
    Image s'adapte à la hauteur du texte.
@@ -123,33 +175,104 @@ nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
 ── */
 .profile-block {
   display: flex;
-  gap: var(--gap);
-  align-items: stretch;   /* image et texte à la même hauteur */
-  margin-top: 3rem;
-  padding-top: 2.5rem;
+  gap: 2rem;
+  align-items: flex-start;   /* image et texte à la même hauteur */
+  padding: 2.2rem 0;
   border-top: 1px solid var(--gris-clair);
 }
 
 .profile-img {
   /* L'image prend toute la hauteur du texte, largeur automatique */
+  width: 160px;
   flex-shrink: 0;
-  width: auto;
-  height: 100%;
-  max-height: 600px;      /* garde une limite raisonnable */
   object-fit: contain;
   object-position: top left;
   filter: grayscale(10%);
-  display: block;
 }
 
-.profile-text {
+.profile-text p{
   width: var(--text-width);
   flex-shrink: 0;
 }
 
 .profile-text p {
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* ── Footer ── */
+footer {
+  background: var(--footer-bg);
+  color: #aaa;
+  margin-top: 5rem;
+  padding: 3rem var(--pad);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+footer h2 { color: #555; margin-top: 0; }
+
+footer p, footer a {
+  color: #aaa;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 2;
+}
+
+footer a:hover { color: #fff; }
+.contact-info p { margin-bottom: 0; }
+.social-links { display: flex; flex-direction: column; }
+
+/* ── Page header (inner pages) ── */
+.page-header {
+  padding: 4rem 0 2rem;
+  border-bottom: 1px solid var(--gris-clair);
+  margin-bottom: 2.5rem;
+}
+
+.page-header h1 { font-size: clamp(1.7rem, 4vw, 2.8rem); }
+
+/* ── Resume ── */
+.resume-entry {
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid var(--gris-clair);
+}
+
+.resume-entry:last-child { border-bottom: none; }
+
+.resume-org {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--noir);
+  display: block;
+  margin-bottom: 0.1rem;
+}
+
+.resume-role { color: var(--accent); font-size: 1rem; display: block; }
+
+.resume-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.73rem;
+  letter-spacing: 0.08em;
+  color: var(--gris);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  nav {gap: 1rem;}
+  .profile-block { flex-direction: column; gap: 1.2rem; }
+  .profile-img { width: 100%; max-width: 260px; }
+  .footer-inner { grid-template-columns: 1fr; }
 }
 
 /* ── Page wrapper : aligne sur la largeur du bloc profil ── */
@@ -194,83 +317,3 @@ nav a.active { color: var(--noir); border-bottom: 1px solid var(--noir); }
 }
 
 .theme-tag:hover { background: var(--noir); color: var(--blanc); }
-
-/* ── Section blocks ── */
-.section {
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--gris-clair);
-}
-
-/* ── Footer ── */
-footer {
-  background: var(--footer-bg);
-  color: #aaa;
-  margin-top: 5rem;
-  padding: 3.5rem var(--padding-page);
-}
-
-.footer-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-footer h2 { color: #666; margin-top: 0; }
-
-footer p, footer a {
-  color: #aaa;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  line-height: 2;
-}
-
-footer a:hover { color: #fff; }
-.contact-info p { margin-bottom: 0; }
-.social-links { display: flex; flex-direction: column; }
-
-/* ── Page header (inner pages) ── */
-.page-header {
-  padding: 4rem 0 2rem;
-  border-bottom: 1px solid var(--gris-clair);
-  margin-bottom: 3rem;
-}
-
-.page-header h1 { font-size: clamp(1.8rem, 4vw, 3rem); }
-
-/* ── Resume ── */
-.resume-entry {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--gris-clair);
-}
-
-.resume-entry:last-child { border-bottom: none; }
-
-.resume-org {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--noir);
-  display: block;
-  margin-bottom: 0.15rem;
-}
-
-.resume-role { color: var(--accent); font-size: 1rem; display: block; }
-
-.resume-date {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: var(--gris);
-  display: block;
-  margin-top: 0.2rem;
-}
-
-/* ── Responsive ── */
-@media (max-width: 650px) {
-  .profile-block { flex-direction: column; align-items: flex-start; }
-  .profile-img { width: 100%; height: auto; max-height: none; }
-  .profile-text { width: 100%; }
-  .footer-inner { grid-template-columns: 1fr; }
-  nav { gap: 1.2rem; }
-}
