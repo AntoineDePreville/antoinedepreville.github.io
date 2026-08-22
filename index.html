@@ -5,45 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Antoine de Préville — Geneva</title>
   <link rel="stylesheet" href="./styles.css">
-  <style>
-    .main-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0 var(--padding-page);
-    }
-
-    /* Hero s'aligne à gauche comme le reste */
-    .hero { width: 100%; }
-
-    /* Le bloc profil définit la largeur de référence */
-    .profile-block { width: max-content; }
-
-    /* Tout le contenu sous le profil prend la même largeur */
-    .below-profile {
-      width: 100%;
-    }
-  </style>
 </head>
 <body>
-
+ 
+  <!-- ── Header ── -->
   <header>
     <div class="header-inner">
       <a href="./index.html" class="site-name">Antoine de Préville</a>
       <nav>
         <a href="./index.html" class="active">Home</a>
-        <a href="./scientific-computing.html">Scientific Computing</a>
+        <a href="./scientific-computing.html">Computing</a>
         <a href="./resume.html">Resume</a>
       </nav>
     </div>
   </header>
-
+ 
   <div class="page-wrapper">
+ 
+    <!-- ── Hero ── -->
     <section class="hero">
-      <p class="hero-subtitle">Based in Geneva · Computer engineering · Environmental sciences</p>
+      <p class="hero-subtitle">Geneva · Computer engineering · Environmental sciences</p>
       <h1>Antoine<br>de Préville</h1>
     </section>
-
+ 
+    <!-- ── 1. Who are you? ── -->
     <div class="section">
       <h2>Who are you?</h2>
       <ul>
@@ -52,7 +37,8 @@
         <li>A person, a startup, an SME or a large organization</li>
       </ul>
     </div>
-  
+ 
+    <!-- ── 2. What Antoine offers ── -->
     <div class="section">
       <h2>What Antoine offers</h2>
       <p>He offers a panel of services ranging from pattern recognition and Machine learning, GIS programming on QGIS and data analysis in environmental and Earth sciences, among others.</p>
@@ -66,7 +52,8 @@
         <li>QGIS</li>
       </ul>
     </div>
-
+ 
+    <!-- ── 3. Main Themes ── -->
     <div class="section">
       <p class="themes-label">Main Themes</p>
       <div class="themes-grid">
@@ -74,13 +61,14 @@
         <a href="./resume.html" class="theme-tag">Resume</a>
       </div>
     </div>
-    
-        <!-- ── Positioning ── -->
+ 
+    <!-- ── 4. Positioning ── -->
     <div class="section">
       <h2>Positioning</h2>
       <p>Antoine is currently a computer engineering student at HEPIA-Geneva with a background in Environmental sciences and engineering from EPFL and UNIL in Lausanne, Switzerland. He worked on different geoscience and science projects like ice-cap depletion simulation and physics-based simulation in Mechanics. He has a unique expertise in both environmental and computer engineering and moreover he is passionate about Machine learning and pattern recognition, especially in Environmental and Earth sciences.</p>
     </div>
-
+ 
+    <!-- ── 5. Présentation + photo (compacte) ── -->
     <div class="profile-block">
       <img class="profile-img" src="P1050049.jpg" alt="Portrait d'Antoine de Préville" />
       <div class="profile-text">
@@ -89,12 +77,10 @@
         <p>Antoine is also an artist trying to capture his surroundings with a camera and uses visual storytelling to expose and tell what he sees.</p>
       </div>
     </div>
-    
-
-    <div class="below-profile" id="belowProfile"></div>
-
-    <hr class="divider">
-
+ 
+  </div><!-- /page-wrapper -->
+ 
+  <!-- ── Footer ── -->
   <footer>
     <div class="footer-inner">
       <div class="contact-info">
@@ -107,27 +93,12 @@
         <h2>Links</h2>
         <a href="https://www.linkedin.com/in/antoine-de-preville" target="_blank">LinkedIn</a>
         <a href="https://github.com/AntoineDePreville" target="_blank">GitHub</a>
+        <a href="https://www.instagram.com/antoinedepreville.photo/" target="_blank">Instagram</a>
+        <a href="https://antoinedepreville.substack.com/" target="_blank">Substack</a>
       </div>
     </div>
   </footer>
-  <script>
-    // Aligne la largeur du contenu sous le profil sur celle du bloc profil
-    function alignWidth() {
-      const block = document.getElementById('profileBlock');
-      const below = document.getElementById('belowProfile');
-      const hero  = document.querySelector('.hero');
-      if (!block || !below) return;
-      const w = block.offsetWidth + 'px';
-      below.style.width = w;
-      hero.style.width  = w;
-    }
-
-    // Attend que l'image soit chargée pour avoir les bonnes dimensions
-    const img = document.querySelector('.profile-img');
-    if (img.complete) { alignWidth(); }
-    else { img.addEventListener('load', alignWidth); }
-    window.addEventListener('resize', alignWidth);
-  </script>
-
+ 
 </body>
 </html>
+ 
